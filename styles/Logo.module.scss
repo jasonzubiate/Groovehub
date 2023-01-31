@@ -1,0 +1,15 @@
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo > .logo__image {
+  position: relative;
+  width: clamp(100px, 140px, 1450px );
+}
+.logo > .logo__text {
+  text-transform: uppercase;
+  font-size: clamp(1rem, 2rem, 2.25rem);
+  font-weight: 800;
+  margin-top: 1rem;
+}

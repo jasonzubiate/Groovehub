@@ -1,0 +1,36 @@
+.result {
+	display: flex;
+	color: inherit;
+	padding: 0.75rem;
+	align-items: center;
+	text-decoration: none;
+	margin-bottom: 0.5rem;
+	border: 2px solid #000000;
+	box-shadow: 2px 2px 0px #000000;
+	border-radius: 8px;
+
+}
+.img {
+	width: 3rem;
+	height: 3rem;
+	border-radius: 5rem;
+	margin-right: .75rem;
+	border: 2px solid black;
+}
+.result__info {
+	display: flex;
+	flex-direction: column;
+	gap: 0.2rem;
+}
+.result__title {
+	font-weight: 500;
+	font-size: 0.75rem;
+	cursor: pointer;
+}
+.result__genres {
+	color: rgb(49, 49, 49);
+	font-size: 0.75rem;
+	font-weight: 300;
+	text-transform: capitalize;
+	cursor: pointer;
+}

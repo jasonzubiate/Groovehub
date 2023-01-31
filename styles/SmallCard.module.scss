@@ -1,0 +1,36 @@
+.card {
+	display: flex;
+	flex-direction: column;
+	height: 200px;
+	width: 140px;
+	border: 3px solid #000000;
+	box-shadow: 3px 3px 0px #000000;
+	border-radius: 10px;
+}
+.card > .card__header {
+	padding: 0.625rem 1.25rem;
+	height: 35px;
+	background-color: #f35e5e;
+	font-weight: 700;
+	font-size: 0.75rem;
+	border-bottom: 3px solid #000000;
+	border-radius: 7px 7px 0px 0px;
+}
+.card > .card__body {
+	height: 100%;
+	padding: 1rem 1.25rem;
+	background-color: #dafcf6;
+	text-transform: capitalize;
+	display: flex;
+	flex-direction: column;
+	border-radius: 0 0 8px 8px;
+}
+.card > .card__body > .card__image {
+	width: 100px;
+	height: 100px;
+	background-color: rgb(34, 34, 34);
+}
+.card > .card__body > .card__genres {
+	font-size: 0.5rem;
+	margin-top: 0.625rem;
+}
