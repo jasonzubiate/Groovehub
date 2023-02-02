@@ -10,7 +10,7 @@ const Login = ({ providers }: LoginProps) => {
 	const spotifyProvider = providers.spotify;
 
 	return (
-		<div className={styles.container}>
+		<div className={styles.container} key={spotifyProvider}>
 			<div className={styles.container__header}>
 				<h1 className={styles.h1}>Groovehub</h1>
 				<h3 className={styles.h3}>Dance Music Discovery</h3>
