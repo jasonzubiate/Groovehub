@@ -1,15 +1,22 @@
 import styles from "../../styles/SmallCard.module.scss";
+import RatingCircle from "./ratingcircle";
 
-const SmallCard = ({ img, content }) => {
-	return (
-		<div className={styles.card}>
-			<div className={styles.card__header}>Header Info</div>
-			<div className={styles.card__body}>
-				<div src={img} alt="Image" className={styles.card__image}>{content}</div>
-				<label className={styles.card__genres} htmlFor="genres"></label>
-			</div>
-		</div>
-	);
+const SmallCard = ({ content }) => {
+  return (
+    <div className={styles.card}>
+      {/* TODO: Conditionally render the colors of the card https://stackoverflow.com/questions/35762351/correct-way-to-handle-conditional-styling-in-react */}
+      <div className={styles.card__header}>
+        <label htmlFor="header">{content.name}</label>
+        <RatingCircle rating={content.rating} />
+      </div>
+      <div className={styles.card__body}>
+        <img src={content.img.src} alt="Image" className={styles.card__image} />
+        <label className={styles.card__genres} htmlFor="genres">
+          {content.genres.join(", ")}
+        </label>
+      </div>
+    </div>
+  );
 };
 
 export default SmallCard;

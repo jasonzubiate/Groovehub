@@ -1,7 +1,10 @@
 .carousel {
-  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
 }
-.carousel__body {
+.carousel > .carousel__header {
+  margin-bottom: .5rem;
+}
+.carousel > .carousel__body {
   display: flex;
   // check figma
   gap: 1rem;
