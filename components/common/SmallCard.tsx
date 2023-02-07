@@ -7,13 +7,13 @@ const SmallCard = ({ content }) => {
       {/* TODO: Conditionally render the colors of the card https://stackoverflow.com/questions/35762351/correct-way-to-handle-conditional-styling-in-react */}
       <div className={styles.card__header}>
         <label htmlFor="header">{content.name}</label>
-        <RatingCircle rating={content.rating} />
+        {/* <RatingCircle rating={content.rating} /> */}
       </div>
       <div className={styles.card__body}>
-        <img src={content.img.src} alt="Image" className={styles.card__image} />
-        <label className={styles.card__genres} htmlFor="genres">
-          {content.genres.join(", ")}
-        </label>
+        <img src={content.img} alt="Image" className={styles.card__image} />
+        {content.genres && <label className={styles.card__genres} htmlFor="genres">
+          {content.genres.slice(0,2).join(", ")}
+        </label>}
       </div>
     </div>
   );

@@ -7,59 +7,59 @@ import { useSession } from "next-auth/react";
 import useSpotify from "@/hooks/useSpotify";
 import artistpic from "@/public/img/artistpic.jpg";
 import SmallCardCarousel from "@/components/common/SmallCardCarousel";
+import { release } from "os";
 
 export default function Home() {
   const spotifyApi = useSpotify();
   const { data: session, status: sessionStatus } = useSession();
-  const [playlists, setPlaylists] = useState([]);
+  const [newReleases, setNewReleases] = useState([]);
+  const [featuredPlaylists, setFeaturedPlaylists] = useState([]);
+  const [hotThisWeek, setHotThisWeek] = useState([]);
 
   useEffect(() => {
     if (spotifyApi.getAccessToken()) {
-      spotifyApi.getMyRecentlyPlayedTracks().then((data: any) => {
-        console.log(data);
-        setPlaylists(data.body.items);
+      // API call to get new releases
+      spotifyApi.getNewReleases().then((data: any) => {
+        setNewReleases(
+          data.body.albums.items.map((release: any) => {
+            return {
+              name: release.name,
+              img: release.images[1].url,
+              cardColors: { header: "#f35e5e", body: "#dafcf6" },
+            };
+          })
+        );
+      });
+
+      // API call for hot artists playlists
+      spotifyApi.getMyTopArtists().then((data: any) => {
+        console.log(data.body.items);
+        setHotThisWeek(
+          data.body.items.map((artist: any) => {
+            return {
+              name: artist.name,
+              img: artist.images[2].url,
+              genres: artist.genres,
+              cardColors: { header: "#f35e5e", body: "#dafcf6" },
+            };
+          })
+        );
+      });
+
+      // API call for featured playlists
+      spotifyApi.getFeaturedPlaylists().then((data: any) => {
+        setFeaturedPlaylists(
+          data.body.playlists.items.map((playlist: any) => {
+            return {
+              name: playlist.name,
+              img: playlist.images[0].url,
+              cardColors: { header: "#f35e5e", body: "#dafcf6" },
+            };
+          })
+        );
       });
     }
   }, [session, spotifyApi]);
-
-  const artists = [
-    {
-      name: "Artist",
-      img: artistpic,
-      genres: ["EDM", "Tech House", "Electro House", "Trance"],
-      rating: 98
-    },
-    {
-      name: "Artist",
-      img: artistpic,
-      genres: ["EDM", "Tech House", "Electro House", "Trance"],
-      rating: 98
-    },
-    {
-      name: "Artist",
-      img: artistpic,
-      genres: ["EDM", "Tech House", "Electro House", "Trance"],
-      rating: 98
-    },
-    {
-      name: "Artist",
-      img: artistpic,
-      genres: ["EDM", "Tech House", "Electro House", "Trance"],
-      rating: 98
-    },
-    {
-      name: "Artist",
-      img: artistpic,
-      genres: ["EDM", "Tech House", "Electro House", "Trance"],
-      rating: 98
-    },
-    {
-      name: "Artist",
-      img: artistpic,
-      genres: ["EDM", "Tech House", "Electro House", "Trance"],
-      rating: 98
-    },
-  ];
 
   return (
     <>
@@ -72,9 +72,12 @@ export default function Home() {
       <main className={styles.main}>
         <div>
           <Header />
-          <SmallCardCarousel header={"Hot This Week"} content={artists}/>
-          <SmallCardCarousel header={"Recently Played"} content={artists} />
-          <SmallCardCarousel header={"Playlists For You"} content={artists} />
+          <SmallCardCarousel header={"New Releases"} content={newReleases} />
+          <SmallCardCarousel header={"Hot This Week"} content={hotThisWeek} />
+          <SmallCardCarousel
+            header={"Playlists For You"}
+            content={featuredPlaylists}
+          />
         </div>
       </main>
     </>
