@@ -40,7 +40,7 @@ export default function Home() {
               name: artist.name,
               img: artist.images[2].url,
               genres: artist.genres,
-              cardColors: { header: "#f35e5e", body: "#dafcf6" },
+              cardColors: { header: "#C8F377", body: "#D3A8FF" },
             };
           })
         );
@@ -53,7 +53,7 @@ export default function Home() {
             return {
               name: playlist.name,
               img: playlist.images[0].url,
-              cardColors: { header: "#f35e5e", body: "#dafcf6" },
+              cardColors: { header: "#86E8D6", body: "#F9A06F" },
             };
           })
         );
