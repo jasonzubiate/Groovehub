@@ -1,13 +1,10 @@
 import Head from "next/head";
-import Image from "next/image";
 import styles from "@/styles/Home.module.scss";
 import Header from "@/components/common/Header";
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import useSpotify from "@/hooks/useSpotify";
-import artistpic from "@/public/img/artistpic.jpg";
 import SmallCardCarousel from "@/components/common/SmallCardCarousel";
-import { release } from "os";
 
 export default function Home() {
   const spotifyApi = useSpotify();
@@ -70,8 +67,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <div>
-          <Header />
+        <Header />
+        <div className={styles.content}>
           <SmallCardCarousel header={"New Releases"} content={newReleases} />
           <SmallCardCarousel header={"Hot This Week"} content={hotThisWeek} />
           <SmallCardCarousel

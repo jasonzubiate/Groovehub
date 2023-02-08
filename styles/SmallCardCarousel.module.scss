@@ -1,5 +1,10 @@
 .carousel {
-  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  width: 60%;
+  overflow-x: auto;
+}
+.carousel::-webkit-scrollbar {
+  display: none;
 }
 .carousel > .carousel__header {
   margin-bottom: .5rem;
