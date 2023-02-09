@@ -20,8 +20,6 @@ const SearchBar = () => {
         if (cancel) return;
         setSearchResults(
           res.body.artists.items.map((artist: any) => {
-            console.log(artist);
-
             return artist;
           })
         );

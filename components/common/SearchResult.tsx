@@ -4,6 +4,7 @@ import styles from "/styles/SearchResult.module.scss";
 import Link from "next/link";
 
 const SearchResult = ({ result }) => {
+	console.log(result);
 	const smallestProfileImage = result.images.reduce(
 		(smallest, image) => {
 			if (image.height < smallest.height) return image;
@@ -13,7 +14,7 @@ const SearchResult = ({ result }) => {
 	);
 
 	return (
-		<Link href={`/Artists/${result.id}`} className={styles.result}>
+		<Link href={`/artist/${result.id}`} className={styles.result}>
 			{result.images.length != 0 && <img src={smallestProfileImage.url} alt={result.name} className={styles.img} />}
 			<div className={styles.result__info}>
 				<label className={styles.result__title}>{result.name}</label>

@@ -1,0 +1,12 @@
+.main {
+  padding: var(--GENPADDING);
+}
+.main > .content {
+  display: flex;
+}
+.content > .content__left,
+.content > .content__middle,
+.content > .content__right {
+  width: 33%;
+  text-align: center;
+}
