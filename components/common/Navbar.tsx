@@ -8,10 +8,10 @@ const Navbar = () => {
 			<Link href="/" className={styles.navbar__navlink}>
 				Home
 			</Link>
-			<Link href="/Discover" className={styles.navbar__navlink}>
+			<Link href="/discover" className={styles.navbar__navlink}>
 				Discover
 			</Link>
-			<Link href="/Profile" className={styles.navbar__navlink}>
+			<Link href="/profile" className={styles.navbar__navlink}>
 				Profile
 			</Link>
 		</nav>

@@ -30,10 +30,22 @@ export default function Home() {
 
       // API call for hot artists playlists
       spotifyApi.getMyTopArtists().then((data: any) => {
-        console.log(data.body.items);
+        // setHotThisWeek(
+        //   data.body.items
+        //     .filter((artist: any) => artist.genres.includes("edm"))
+        //     .map((artist: any) => {
+        //       return {
+        //         name: artist.name,
+        //         img: artist.images[2].url,
+        //         genres: artist.genres,
+        //         cardColors: { header: "#C8F377", body: "#D3A8FF" },
+        //       };
+        //     })
+        // );
         setHotThisWeek(
           data.body.items.map((artist: any) => {
             return {
+              id: artist.id,
               name: artist.name,
               img: artist.images[2].url,
               genres: artist.genres,
@@ -48,6 +60,7 @@ export default function Home() {
         setFeaturedPlaylists(
           data.body.playlists.items.map((playlist: any) => {
             return {
+              id: playlist.id,
               name: playlist.name,
               img: playlist.images[0].url,
               cardColors: { header: "#86E8D6", body: "#F9A06F" },
@@ -69,12 +82,17 @@ export default function Home() {
       <main className={styles.main}>
         <Header />
         <div className={styles.content}>
-          <SmallCardCarousel header={"New Releases"} content={newReleases} />
-          <SmallCardCarousel header={"Hot This Week"} content={hotThisWeek} />
-          <SmallCardCarousel
-            header={"Playlists For You"}
-            content={featuredPlaylists}
-          />
+          <div className={styles.content__left}>
+            <SmallCardCarousel header={"New Releases"} content={newReleases} />
+            <SmallCardCarousel header={"Hot This Week"} content={hotThisWeek} />
+            <SmallCardCarousel
+              header={"Playlists For You"}
+              content={featuredPlaylists}
+            />
+          </div>
+          <div className={styles.content__right}>
+            right
+          </div>
         </div>
       </main>
     </>
