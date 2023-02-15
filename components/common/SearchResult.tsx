@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRecoilState } from "recoil";
 import { artistIdState } from "@/atoms/artistAtom";
 
-const SearchResult = ({ result }) => {
+const SearchResult = ({ setSearch, result }) => {
   const [artistId, setArtistId] = useRecoilState(artistIdState);
   const smallestProfileImage = result.images.reduce((smallest, image) => {
     if (image.height < smallest.height) return image;
@@ -18,6 +18,7 @@ const SearchResult = ({ result }) => {
       href={`/artist`}
       onClick={() => {
         setArtistId(result.id);
+        setSearch("")
       }}
       className={styles.result}
     >

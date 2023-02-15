@@ -44,7 +44,7 @@ const SearchBar = () => {
         <div className={styles.search__results}>
           {" "}
           {searchResults.length > 0 &&
-            searchResults.map((result) => <SearchResult result={result} />)}
+            searchResults.map((result) => <SearchResult setSearch={setSearch} result={result} />)}
         </div>
       )}
     </div>
