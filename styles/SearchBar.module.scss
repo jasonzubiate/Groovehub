@@ -16,6 +16,7 @@
   justify-content: center;
   align-items: center;
   padding: 6px;
+  box-shadow: 4px 4px 0 black;
 }
 .search__searchbar > .searchbar__input,
 .searchbar__input::placeholder {
@@ -38,6 +39,7 @@
   overflow-y: auto;
   border-top: 4px solid black;
   border-radius: 0 0 8px 8px;
+  box-shadow: 4px 4px 0 black;
 }
 .search > .search__results::-webkit-scrollbar {
   display: none;
