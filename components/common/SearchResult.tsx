@@ -18,7 +18,7 @@ const SearchResult = ({ setSearch, result }) => {
       href={`/artist`}
       onClick={() => {
         setArtistId(result.id);
-        setSearch("")
+        setSearch("");
       }}
       className={styles.result}
     >
