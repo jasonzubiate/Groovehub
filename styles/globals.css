@@ -23,6 +23,11 @@ button {
 	/* FONTS */
 	--FF: "Sora", sans-serif;
 	--FS: clamp(1rem, 2.2vh, 1.5rem);
+
+	/* COLORS */
+	--BGCOLOR: #FFFBE4;
+	--PRIMARYCOLOR: #c8f377;
+	
 	/* GENERAL */
 	--GENPADDING: 0rem 6rem
 }
@@ -41,7 +46,7 @@ main {
 	font-family: var(--FF);
 	font-size: var(--FS);
 	scroll-behavior: smooth;
-	background-color: #FFFBE4;
+	background-color: var(--BGCOLOR);
 	height: 100vh;
 	overflow: hidden;
 }

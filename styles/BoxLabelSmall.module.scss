@@ -1,0 +1,19 @@
+.box {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 1rem 1.5rem;
+  // min-width: 120px;
+  border-radius: .5rem;
+  border: 3px solid black;
+  box-shadow: 3px 3px black;
+  align-items: center;
+}
+.value {
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+.label {
+  font-weight: 400;
+  font-size: .75rem;
+}

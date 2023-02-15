@@ -3,10 +3,31 @@
 }
 .main > .content {
   display: flex;
+  gap: 4rem;
 }
 .content > .content__left,
 .content > .content__middle,
 .content > .content__right {
   width: 33%;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.content__middle {
+  gap: 1rem;
+}
+.h1 {
+  font-weight: 700;
+  font-size: 4rem;
+}
+.content__left > .artist__image {
+  position: relative;
+}
+.content__left > .artist__image > .img__card {
+  border-radius: 1rem;
+  object-fit: cover;
+  object-position: top;
+}
+.content__middle > .boxes_container {
+  display: flex;
+  gap: 2rem;
 }

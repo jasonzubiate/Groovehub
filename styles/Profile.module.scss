@@ -1,9 +1,14 @@
 .main {
-	padding: var(--GENPADDING);
+  padding: var(--GENPADDING);
 }
 .main > .content {
-	display: flex;
+  display: flex;
 }
-.content > .content__left, .content > .content__right {
-	width: 50%;
+.h1 {
+  font-weight: 600;
+  font-size: 2.5rem;
+}
+.content > .content__left,
+.content > .content__right {
+  width: 50%;
 }
