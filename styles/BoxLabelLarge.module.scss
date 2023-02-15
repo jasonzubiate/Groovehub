@@ -15,12 +15,15 @@
   border-bottom: 3px solid black;
 }
 .box > .box__container { 
-  padding: 1rem 1.5rem ;
   border-radius: 0 0 .75rem .75rem;
   box-shadow: 3px 3px black;
   background-color: white;
   display: flex;
   justify-content: space-between;
+}
+.box > .box__container > .container__left {
+  padding: 1rem 1.5rem ;
+
 }
 .content {
   font-weight: 600;

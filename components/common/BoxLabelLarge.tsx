@@ -18,7 +18,7 @@ export default function BoxLabelLarge({ header, content }) {
           </label>
         </div>
         <div className={styles.container__right}>
-          <Image src={mixer} alt={mixer} width={200} quality={100} />
+          <Image src={mixer} alt={mixer} width={150} quality={100} />
         </div>
       </div>
     </div>

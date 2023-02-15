@@ -10,6 +10,7 @@ import { artistIdState, artistState } from "@/atoms/artistAtom";
 import BoxLabelSmall from "@/components/common/BoxLabelSmall";
 import Image from "next/image";
 import BoxLabelLarge from "@/components/common/BoxLabelLarge";
+import { CLIENT_RENEG_LIMIT } from "tls";
 
 export default function artist() {
   const spotifyApi = useSpotify();
@@ -23,12 +24,19 @@ export default function artist() {
   useEffect(() => {
     if (spotifyApi.getAccessToken()) {
       // Api call to get artist details
-      spotifyApi.getArtist("7kNqXtgeIwFtelmRjWv205").then((data: any) => {
+      spotifyApi.getArtist(artistId).then((data: any) => {
         console.log(data.body);
-        setArtist(data.body);
+        setArtist({
+          id: data.body.id,
+          name: data.body.name,
+          followers: data.body.followers,
+          genres: data.body.genres,
+          popularity: data.body.popularity,
+          img: data.body.images[0].url,
+        });
       });
       // Api call to get artist related artists
-      spotifyApi.getArtistRelatedArtists("7kNqXtgeIwFtelmRjWv205").then((data: any) => {
+      spotifyApi.getArtistRelatedArtists(artistId).then((data: any) => {
         setRelatedArtists(
           data.body.artists.map((artist: any) => {
             return {
@@ -42,9 +50,9 @@ export default function artist() {
         );
       });
       // Api call to get artist top tracks
-      // spotifyApi.getArtistTopTracks(artistId).then((data: any) => {
-      //   setTopTracks(data.body.items);
-      // });
+      spotifyApi.getArtistTopTracks(artistId, "US").then((data: any) => {
+        setTopTracks(data.body.items);
+      });
       // spotifyApi.getArtistAlbums(artistId).then((data: any) => {
       //   setArtsitAlbums(data.body.items);
       // });
@@ -61,21 +69,23 @@ export default function artist() {
       <Header />
       <div className={styles.content}>
         <div className={styles.content__left}>
-          <div className={styles.artist__image}>
-            <Image  className={styles.img__card} alt={artist.name} fill quality={100}/>
-          </div>
+          <img
+            src={artist.img}
+            className={styles.artist__image}
+            alt={artist.name}
+          />
         </div>
         <div className={styles.content__middle}>
           <h1 className={styles.h1}>{artist.name}</h1>
           <div className={styles.boxes_container}>
-            <BoxLabelSmall label={"Followers"} value={artist.followers?.total} />
             <BoxLabelSmall
-              label={"Popularity"}
-              value={artist.popularity}
+              label={"Followers"}
+              value={artist.followers?.total}
             />
+            <BoxLabelSmall label={"Popularity"} value={artist.popularity} />
             <BoxLabelSmall label={"Liked Songs"} value={7} />
           </div>
-          <BoxLabelLarge header={"Genres"} content={artist.genres}/>
+          <BoxLabelLarge header={"Genres"} content={artist.genres} />
         </div>
         <div className={styles.content__right}>
           <SmallCardCarousel

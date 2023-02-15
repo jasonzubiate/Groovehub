@@ -20,12 +20,11 @@
   font-size: 4rem;
 }
 .content__left > .artist__image {
-  position: relative;
-}
-.content__left > .artist__image > .img__card {
-  border-radius: 1rem;
+  border-radius: 2rem;
   object-fit: cover;
   object-position: top;
+  border: 8px solid black;
+  box-shadow: 8px 8px black;
 }
 .content__middle > .boxes_container {
   display: flex;
