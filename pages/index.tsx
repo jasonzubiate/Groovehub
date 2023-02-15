@@ -90,11 +90,32 @@ export default function Home() {
               content={featuredPlaylists}
             />
           </div>
-          <div className={styles.content__right}>
-            right
-          </div>
+          <div className={styles.content__right}>right</div>
         </div>
       </main>
     </>
   );
 }
+
+// export async function getStaticProps() {
+//   const spotifyApi = useSpotify();
+  
+//   var data = null;
+
+//   if (spotifyApi.getAccessToken()) {
+//     data = spotifyApi.getNewReleases().then((data: any) => {
+//       data.body.albums.items.map((release: any) => {
+//         return {
+//           name: release.name,
+//           img: release.images[1].url,
+//           cardColors: { header: "#f35e5e", body: "#dafcf6" },
+//         };
+//       });
+//     });
+//   }
+//   return {
+//     props: {
+//       releases: data,
+//     },
+//   };
+// }

@@ -71,7 +71,7 @@ function profile() {
       <div className={styles.content}>
       <div className={styles.content__left}>
         {user && (
-          <h1>
+          <h1 className={styles.h1}>
             Welcome Back,{" "}
             {user.display_name.charAt(0).toUpperCase() +
               user.display_name.slice(1)}
