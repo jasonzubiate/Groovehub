@@ -13,7 +13,7 @@ export default function BoxLabelLarge({ header, content }) {
         <div className={styles.container__left}>
           <label className={styles.content} htmlFor="value">
             {content?.map((value: any) => {
-              return <div>{value}</div>;
+              return <div>{value.charAt(0).toUpperCase() + value.slice(1)}</div>;
             })}
           </label>
         </div>
